@@ -20,14 +20,15 @@ public class Money implements Expression {
 
     public boolean equals(Object object) {
         Money money = (Money) object;
-        return amount == money.amount
-                && currency().equals(money.currency());
+
+        return amount == money.amount && currency().equals(money.currency());
     }
     public String toString() {
         return amount + " " + currency;
     }
     public Money reduce(Bank bank, String to) {
         int rate = bank.rate(currency, to);
+
         return new Money(amount / rate, to);
     }
 

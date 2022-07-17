@@ -14,7 +14,7 @@ public class Bank {
     int rate(String from, String to) {
         if(from.equals(to)) return 1;
         Integer rate = (Integer) rates.get(new Pair(from, to));
-        return rate.intValue();
+        return rate;
     }
 
     private class Pair {
@@ -28,6 +28,7 @@ public class Bank {
 
         public boolean equals(Object object) {
             Pair pair = (Pair) object;
+
             return from.equals(pair.from) && to.equals(pair.to);
         }
 
